@@ -1,25 +1,29 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class IsOdd {
-	void retOdd(ArrayList<Integer> input_array,ArrayList<Integer> odd_array){
+	public List<Integer> retOdd(List<Integer> input_array,List<Integer> odd_array){
+		if(!input_array.isEmpty()){
 		int num=input_array.remove(0);
 		if((num&1)==1){
 			odd_array.add(num);
 		}
-		while(!input_array.isEmpty()){
-			retOdd(input_array,odd_array);
+		return retOdd(input_array,odd_array);
 		}
+	
+	return odd_array;
 	}
 	
 	public static void main(String[] args){
-		ArrayList<Integer> origList = new ArrayList<Integer>();
+		List<Integer> origList = new ArrayList<Integer>();
 		ArrayList<Integer> newList = new ArrayList<Integer>();
-		int arr[]={1,2,3,4,5,6,7,8,9,10,11,121,324,3423};
-		for(int i=0;i<arr.length;i++){
-		origList.add(i, arr[i]);
-	}
+		origList.add(23);
+		origList.add(3);
+		origList.add(5);
+		origList.add(4);
+		origList.add(2);
+		
 		IsOdd obj=new IsOdd();
-		obj.retOdd(origList, newList);
+		System.out.println(obj.retOdd(origList,newList));
 	}
 }
 	
